@@ -12,11 +12,12 @@ class InstrumentFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Faker\Factory::create('fr_FR');
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 1; $i < 6; $i++) {
             $instrument = new Instrument();
             $instrument->setName($faker->colorName);
             $instrument->setSound("sound_" . rand(1,5));
-            $this->addReference('instrument_'. rand(1,5), $instrument);
+            $this->addReference('instrument_'. $i, $instrument);
+            $manager->persist($instrument);
         }
         $manager->flush();
     }
