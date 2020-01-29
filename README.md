@@ -2,4 +2,4 @@
 
 ### PITCH
 
-Here you go, a simple app to play with instruments and bacterias.
+Here you go, a simple API with instruments, bacterias, host and team of bacterias and host.
