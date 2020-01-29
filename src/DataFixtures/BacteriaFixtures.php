@@ -16,9 +16,9 @@ class BacteriaFixtures extends Fixture implements DependentFixtureInterface
         for ($i = 0; $i < 10; $i++) {
             $bacteria = new Bacteria();
             $bacteria->setName($faker->colorName);
-            $bacteria->setAvatar();
+            $bacteria->setAvatar("bacteria_" . rand(1,5));
+            $bacteria->setInstrument($this->getReference('instrument_' . rand(1, 5)));
         }
-
         $manager->flush();
     }
 
@@ -27,6 +27,6 @@ class BacteriaFixtures extends Fixture implements DependentFixtureInterface
      */
     public function getDependencies()
     {
-        // TODO: Implement getDependencies() method.
+        return [InstrumentFixtures::class];
     }
 }
