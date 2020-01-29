@@ -9,7 +9,7 @@ use Faker;
 
 class InstrumentFixtures extends Fixture
 {
-    public function load(ObjectManager $manager): void
+    public function load(ObjectManager $manager) : void
     {
         $faker = Faker\Factory::create('fr_FR');
         for ($i = 1; $i < 6; $i++) {
