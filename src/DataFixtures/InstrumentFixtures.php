@@ -15,7 +15,7 @@ class InstrumentFixtures extends Fixture
         for ($i = 1; $i < 6; $i++) {
             $instrument = new Instrument();
             $instrument->setName($faker->colorName);
-            $instrument->setSound("sound_" . rand(1,5));
+            $instrument->setSound("sound_" . rand(1,5). ".mp3");
             $this->addReference('instrument_'. $i, $instrument);
             $manager->persist($instrument);
         }

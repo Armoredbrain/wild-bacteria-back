@@ -4,10 +4,13 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     normalizationContext={"groups"={"bacteria:read"}},
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\BacteriaRepository")
  */
 class Bacteria
@@ -23,6 +26,7 @@ class Bacteria
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank
      * @Assert\Regex("/^\w+/")
+     * @Groups({"bacteria:read","team:read","instrument:read"})
      */
     private $name;
 
@@ -30,11 +34,13 @@ class Bacteria
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Regex("/^\w+/ .")
+     * @Groups({"bacteria:read","team:read","instrument:read"})
      */
     private $avatar;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Instrument", inversedBy="bacterias")
+     * @Groups({"bacteria:read","team:read","instrument:read"})
      */
     private $instrument;
 
