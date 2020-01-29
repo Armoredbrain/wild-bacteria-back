@@ -16,7 +16,7 @@ class BacteriaFixtures extends Fixture implements DependentFixtureInterface
         for ($i = 0; $i < 20; $i++) {
             $bacteria = new Bacteria();
             $bacteria->setName($faker->userName);
-            $bacteria->setAvatar("bacteria_" . rand(1,5));
+            $bacteria->setAvatar("bacteria_" . rand(1,5) . ".jpg");
             $bacteria->setInstrument($this->getReference('instrument_' . rand(1, 5)));
             $bacteria->setTeam($this->getReference('team_' . rand(1, 5)));
             $manager->persist($bacteria);

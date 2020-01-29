@@ -16,7 +16,7 @@ class HostFixtures extends Fixture implements DependentFixtureInterface
         for($i = 0; $i < 3; $i++) {
             $host = new Host();
             $host->setName($faker->userName);
-            $host->setAvatar('host_' . rand(1, 5));
+            $host->setAvatar('host_' . rand(1, 5) . ".png");
             $host->setTeam($this->getReference('team_' . rand(1, 5)));
             $manager->persist($host);
         }
