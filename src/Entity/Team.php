@@ -10,9 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource(
- *     normalizationContext={"groups"={"team:read"}},
- * )
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\TeamRepository")
  */
 class Team
@@ -26,8 +24,6 @@ class Team
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank()
-     * @Assert\Regex("/^\w+/ .")
      * @Groups({"bacteria:read","team:read","instrument:read"})
      */
     private $name;
