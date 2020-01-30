@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource()
@@ -20,16 +22,19 @@ class Bacteria
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"bacteria:read","team:read","instrument:read"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"bacteria:read","team:read","instrument:read"})
      */
     private $avatar;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Instrument", inversedBy="bacterias")
+     * @Groups({"bacteria:read","team:read","instrument:read"})
      */
     private $instrument;
 
