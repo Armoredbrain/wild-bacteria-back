@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\HostRepository")
@@ -18,11 +19,15 @@ class Host
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
+     * @Assert\Regex("/^\w+/")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Regex("/^\w+/ .")
      */
     private $avatar;
 
