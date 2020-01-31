@@ -19,15 +19,11 @@ class Host
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank
-     * @Assert\Regex("/^\w+/")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Regex("/^\w+/ .")
      */
     private $avatar;
 
