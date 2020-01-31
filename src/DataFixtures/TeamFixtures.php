@@ -14,7 +14,7 @@ class TeamFixtures extends Fixture
         $faker = Faker\Factory::create('fr_FR');
         for($i = 1; $i < 6; $i++) {
             $team = new Team();
-            $team->setName($faker->domainWord);
+            $team->setName("team " . $faker->domainWord);
             $this->addReference('team_'. $i, $team);
             $manager->persist($team);
         }
